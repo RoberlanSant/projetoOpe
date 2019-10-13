@@ -1,4 +1,7 @@
 .idea
 *.sqlite3
-venv
+.venv/
+venv/
 projetoOpe/__pycache__/
+projeto_Ope.pem
+projetoOpe.pem

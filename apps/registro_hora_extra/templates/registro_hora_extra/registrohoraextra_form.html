@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
 {% block main %}
+{% load static %}
 
 
 <form method="POST">
@@ -14,8 +15,23 @@
         <a href="{% url 'delete_horas-extras' object.id %}" class="btn btn-danger">
             Deletar
         </a>
+
     {% endif %}
+
+
 </form>
-    <br>
+<br>
+    <button onclick="utilizouHoraExtra({{ object.id }})	" class="btn btn-info	">
+    		Horas utilizadas</button>
+
+<br>
+<p id='#mensagem'></p>
+
+{% endblock %}
+
+
+{% block static %}
+		<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/funcoes-ajax.js' %}"></script>
 
 {% endblock %}

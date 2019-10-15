@@ -10,8 +10,9 @@ function utilizouHoraExtra(id){
 
 				},
 				success: function(result){
-					console.log('sucesso!!!');
-						$("#mensagem").text('hora extra marcada como utilizada')
+					console.log(result);
+					$("#mensagem").text(result.mensagem);
+					$("#horas_atualizadas").text(result.horas);
 
 				}
 

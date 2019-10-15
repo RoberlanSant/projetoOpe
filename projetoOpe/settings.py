@@ -8,7 +8,7 @@ SECRET_KEY = 'it%9s+c#9m=ya0_vyjhdu#ja0g*q3l-_r(&l&vias#a=zywh!)'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['18.189.210.71']
+ALLOWED_HOSTS = []
 
 
 
@@ -108,7 +108,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "files/")
 
 LOGIN_REDIRECT_URL = 'home'
 

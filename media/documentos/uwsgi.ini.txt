@@ -1,0 +1,9 @@
+[uwsgi]
+chdir           = /home/ubuntu/gestao_rh
+module          = gestao_rh.wsgi
+home            = /home/ubuntu/venv
+master          = true
+processes       = 10
+socket          = /home/ubuntu/gestao_rh/mysite.sock
+vacuum          = true
+chmod-socket    = 666

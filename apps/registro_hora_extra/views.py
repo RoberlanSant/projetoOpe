@@ -2,9 +2,9 @@ from .models import RegistroHoraExtra
 from django.urls import reverse_lazy
 from .forms import RegistroHoraExtraForm
 from django.contrib.auth.models import User
-from django.views.generic import(ListView, 
-                                UpdateView, 
-                                DeleteView, 
+from django.views.generic import(ListView,
+                                UpdateView,
+                                DeleteView,
                                 CreateView
 )
 
@@ -23,6 +23,20 @@ class HoraExtraEdit(UpdateView):
 
     def get_form_kwargs(self):
         kwargs = super(HoraExtraEdit, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
+
+class HoraExtraEditGeral(UpdateView):
+    model = RegistroHoraExtra
+    form_class = RegistroHoraExtraForm
+    #success_url = reverse_lazy('update_horas-extras_geral')
+
+    def get_success_url(self):
+        return reverse_lazy('update_horas-extras_geral', args=[self.object.id])
+
+    def get_form_kwargs(self):
+        kwargs = super(HoraExtraEditGeral, self).get_form_kwargs()
         kwargs.update({'user': self.request.user})
         return kwargs
 

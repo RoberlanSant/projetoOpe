@@ -5,15 +5,15 @@
     <br>
     {% for horas_extras in object_list %}
         <br>
-        <a href="{% url 'update_horas-extras' horas_extras.id %}">
+        <a href="{% url 'update_horas-extras_geral' horas_extras.id %}">
            {{horas_extras}}
-        </a> 
+        </a>
 
         <br>
     {% endfor %}
     {% if not object_list %}
         <h3>Não existe registro de horas extras no banco de dados</h3>
-    {% endif %}    
+    {% endif %}
 
 
         <a href="{% url 'create_horas-extras' %}" class="btn btn-info"> Novo </a>

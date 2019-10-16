@@ -14,7 +14,11 @@
         <br>
     {% endfor %}
 
-        <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Novo </a>
-        <a href="{% url 'relatorio_funcionarios' %}" class="btn btn-info">Gerar Relatório Funcionarios</a><br>
+    <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Novo </a>
+    <a href="{% url 'relatorio_funcionarios' %}" class="btn btn-info">Relatório Funcionarios</a>
+
+    <a href="{% url 'relatorio_funcionarios_html' %}" class="btn btn-info">Relatório Funcionarios HTML</a>
+
+
 
 {% endblock %}

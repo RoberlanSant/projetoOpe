@@ -12,7 +12,7 @@ from django.views import View
 from django.http import HttpResponse
 import io
 from django.http import FileResponse
-from reportlab.pdfgen import canvas
+#from reportlab.pdfgen import canvas
 import reportlab
 from django.template.loader import get_template
 import xhtml2pdf.pisa as pisa

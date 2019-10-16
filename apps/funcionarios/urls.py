@@ -3,7 +3,8 @@ from .views import (FuncionariosList,
                     FuncionarioEdit,
                     FuncionarioDelete,
                     FuncionarioNovo,
-                    Pdf
+                    Pdf,
+                    relatorio_funcionarios
 )
 
 from .views import relatorio_funcionarios

@@ -12,6 +12,8 @@ from django.views import View
 from django.http import HttpResponse
 import io
 from django.http import FileResponse
+from reportlab.pdfgen import canvas
+
 from django.template.loader import get_template
 import xhtml2pdf.pisa as pisa
 
@@ -50,8 +52,8 @@ class FuncionarioNovo(CreateView):
 
 
 
-# Erro no relatorio reportlab verificar depois
-'''
+
+# gerar relatório reportlab pesquisar para efetuar melhorias
 def relatorio_funcionarios(request):
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] ='attachment; filename="mypdf.pdf"'
@@ -81,7 +83,7 @@ def relatorio_funcionarios(request):
     response.write(pdf)
 
     return response
-'''
+
 
 class Render:
     @staticmethod

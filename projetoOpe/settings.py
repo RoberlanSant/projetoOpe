@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'django_celery_results',
     'apps.core',
     'apps.empresa',
     'apps.funcionarios',
@@ -114,3 +116,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+

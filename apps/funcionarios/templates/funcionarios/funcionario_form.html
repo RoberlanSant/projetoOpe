@@ -23,10 +23,9 @@
 </ul>
 
   {% if object %}
-    	<a href="{% url 'create_documento' object.id %}" class="btn btn-success">Adicionar Documento</a>
-  {% endif %}
+    	<a href="{% url 'create_documento'  object.id %}" class="btn btn-success">Adicionar Documento</a>
+    {% endif %}
 
-<br>
 <h2>Banco de Horas</h2>
 <ul>
 {% for registro_hora in object.registrohoraextra_set.all %}

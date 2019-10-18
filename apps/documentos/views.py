@@ -1,5 +1,6 @@
 from django.views.generic import CreateView
 from .models import Documento
+from django.urls import reverse_lazy
 
 class DocumentoCreate(CreateView):
     model = Documento
@@ -15,3 +16,4 @@ class DocumentoCreate(CreateView):
 
         else:
             return self.form_invalid(form)
+

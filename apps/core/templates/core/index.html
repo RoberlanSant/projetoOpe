@@ -7,7 +7,12 @@
     </div>
     <div class="col-sm">
         Ola {{ usuario.funcionario.nome }}
+
+      {% if usuario.funcionario.empresa %}
           <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a><br>
+      {% else %}
+          <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Novo </a>
+      {% endif %}
           <a href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a><br>
           <a href="{% url 'list_horas-extras' %}">Gerenciar Banco de Horas</a><br>
     </div>

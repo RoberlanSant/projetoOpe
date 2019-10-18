@@ -1,8 +1,9 @@
 # Create your tasks here
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
-from django.core.mail import send_email
 from apps.funcionarios.models import Funcionario
+from django.core.mail import send_mail
+
 
 @shared_task
 def add(x, y):

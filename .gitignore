@@ -8,3 +8,10 @@ projetoOpe.pem
 projeto.pem
 nedia
 static
+uwsgi.ini
+uwsgi_params
+*.bak
+*.dat
+*.pid
+*.dir
+

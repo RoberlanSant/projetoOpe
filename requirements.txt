@@ -3,7 +3,9 @@ billiard==3.6.1.0
 celery==4.3.0
 Django==2.2.4
 django-bootstrap-form==3.4
+django-celery-beat==1.5.0
 django-celery-results==1.1.2
+django-timezone-field==3.1
 djangorestframework==3.10.3
 html5lib==1.0.1
 importlib-metadata==0.23
@@ -12,6 +14,8 @@ more-itertools==7.2.0
 Pillow==6.2.0
 pkg-resources==0.0.0
 PyPDF2==1.26.0
+python-crontab==2.3.9
+python-dateutil==2.8.0
 pytz==2019.2
 redis==3.3.11
 reportlab==3.5.28

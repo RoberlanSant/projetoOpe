@@ -1,28 +1,79 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
+
 
 {% block main %}
+    <br>
+  <div class="row">
+      <div class="col-sm">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+          <h5 class="card-title">
+            <i class="fa fa-users" aria-hidden="true"></i>
+              Empregados
+
+          </h5>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+          <h5 class="card-title">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+              Banco de Horas
+
+          </h5>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+          <h5 class="card-title">
+            <i class="fa fa-folder-open" aria-hidden="true"></i>
+              Documentos
+
+          </h5>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Funcionarios</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+
+
+          </div>
+        </div>
+      </div>
+
+
+    <div class="col-sm">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Status Horas Extras</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="col-sm">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Status Documentos</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
     <div class="col-sm">
-      Uma de três colunas
-    </div>
-    <div class="col-sm">
-        Ola {{ usuario.funcionario.nome }}
 
-      {% if usuario.funcionario.empresa %}
-          <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a><br>
-      {% else %}
-          <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Novo </a>
-      {% endif %}
-          <a href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a><br>
-          <a href="{% url 'list_horas-extras' %}">Gerenciar Banco de Horas</a><br>
-    </div>
-    <div class="col-sm">
-      <a href="{% url 'logout' %}">Logout</a>
-      {% if usuario.funcionario.empresa %}
-        <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar Empresa</a>
-      {% else %}
-        <a href="{% url 'create_empresa' %}">Criar Empresa</a>
-      {% endif %}
+
+
     </div>
   </div>
 </div>

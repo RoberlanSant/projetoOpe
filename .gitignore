@@ -14,4 +14,4 @@ uwsgi_params
 *.dat
 *.pid
 *.dir
-
+local_settings.py

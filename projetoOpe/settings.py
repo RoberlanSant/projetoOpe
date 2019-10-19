@@ -8,7 +8,7 @@ SECRET_KEY = 'it%9s+c#9m=ya0_vyjhdu#ja0g*q3l-_r(&l&vias#a=zywh!)'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['18.189.210.71']
+ALLOWED_HOSTS = []
 
 
 
@@ -64,19 +64,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projetoOpe.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    'antigo': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'dbantigo.sqlite3'),
-    }
-}
-
-
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -126,16 +113,12 @@ LOGOUT_REDIRECT_URL = 'login'
 CELERY_RESULT_BACKEND = 'django-db'
 
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
+
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
 DATABASE_ROUTERS = ['projetoOpe.DBroutes.DBroutes']
 
-#EMAIL_HOST = ''
-#EMAIL_PORT =
-#EMAIL_HOST_USER = ''
-#EMAIL_HOST_PASSWORD = ''
-#EMAIL_USE_TSL = False
-#EMAIL_USE_SSL = True
+
+from .local_settings import *

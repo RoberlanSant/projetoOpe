@@ -1,6 +1,6 @@
 from rest_framework import routers, serializers, viewsets
-from apps.funcionarios.models import Funcionario
-from apps.registro_hora_extra.api.serializers import RegistroHoraExtraSerializer
+from apps_gerais.funcionarios.models import Funcionario
+from apps_gerais.registro_hora_extra.api.serializers import RegistroHoraExtraSerializer
 
 
 

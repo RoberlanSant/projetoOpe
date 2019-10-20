@@ -1,5 +1,5 @@
 from rest_framework import routers, serializers, viewsets
-from apps.registro_hora_extra.models import RegistroHoraExtra
+from apps_gerais.registro_hora_extra.models import RegistroHoraExtra
 
 
 

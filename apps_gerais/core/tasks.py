@@ -1,7 +1,7 @@
 # Create your tasks here
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
-from apps.funcionarios.models import Funcionario
+from apps_gerais.funcionarios.models import Funcionario
 from django.core.mail import send_mail
 
 

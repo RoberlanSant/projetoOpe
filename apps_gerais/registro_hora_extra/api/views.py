@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from apps.registro_hora_extra.api.serializers import RegistroHoraExtraSerializer
-from apps.registro_hora_extra.models import RegistroHoraExtra
+from apps_gerais.registro_hora_extra.api.serializers import RegistroHoraExtraSerializer
+from apps_gerais.registro_hora_extra.models import RegistroHoraExtra
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 

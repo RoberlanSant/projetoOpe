@@ -1,5 +1,5 @@
 from django.db import models
-from apps.empresa.models import Empresa
+from apps_gerais.empresa.models import Empresa
 from django.urls import reverse
 
 class Departamento(models.Model):

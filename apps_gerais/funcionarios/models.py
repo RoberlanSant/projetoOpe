@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from apps.departamentos.models import Departamento
-from apps.empresa.models import Empresa
+from apps_gerais.departamentos.models import Departamento
+from apps_gerais.empresa.models import Empresa
 from django.urls import reverse
 from django.db.models import Sum
 

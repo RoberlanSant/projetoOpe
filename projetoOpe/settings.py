@@ -1,10 +1,11 @@
 import os
 from django.utils.translation import ugettext_lazy as _
+from decouple import config, Csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-SECRET_KEY = 'it%9s+c#9m=ya0_vyjhdu#ja0g*q3l-_r(&l&vias#a=zywh!)'
+SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = 'it%9s+c#9m=ya0_vyjhdu#ja0g*q3l-_r(&l&vias#a=zywh!)'
 
 
 DEBUG = True
@@ -24,14 +25,18 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_celery_results',
     'django_celery_beat',
-    'apps.core',
-    'apps.empresa',
-    'apps.funcionarios',
-    'apps.departamentos',
-    'apps.documentos',
-    'apps.registro_hora_extra',
+    'apps_gerais.core',
+    'apps_gerais.empresa',
+    'apps_gerais.funcionarios',
+    'apps_gerais.departamentos',
+    'apps_gerais.documentos',
+    'apps_gerais.registro_hora_extra',
     'bootstrapform',
-    'apps.app_antiga'
+    'django_extensions',
+    'widget_tweaks',
+    'apps_gerais.produto',
+    'apps_gerais.estoque',
+    'apps_gerais.app_antiga'
 ]
 
 MIDDLEWARE = [
@@ -95,7 +100,12 @@ USE_L10N = True
 USE_TZ = True
 
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 STATIC_URL = '/static/'
 
@@ -121,7 +131,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-DATABASE_ROUTERS = ['projetoOpe.DBroutes.DBroutes']
+#DATABASE_ROUTERS = ['projetoOpe.DBroutes.DBroutes']
 
 LANGUAGES = [
     ('es', _('Spanish')),
@@ -134,4 +144,4 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, "locale"),
 ]
 
-from .local_settings import *
+#from .local_settings import *

@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from apps.funcionarios.api.serializers import FuncionarioSerializer
-from apps.funcionarios.models import Funcionario
+from apps_gerais.funcionarios.api.serializers import FuncionarioSerializer
+from apps_gerais.funcionarios.models import Funcionario
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 

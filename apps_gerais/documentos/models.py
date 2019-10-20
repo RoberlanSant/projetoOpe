@@ -1,5 +1,5 @@
 from django.db import models
-from apps.funcionarios.models import Funcionario
+from apps_gerais.funcionarios.models import Funcionario
 from django.shortcuts import reverse
 
 # Create your models here.

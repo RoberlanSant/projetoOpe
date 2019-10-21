@@ -29,7 +29,7 @@ class FuncionariosList(ListView):
 
 class FuncionarioEdit(UpdateView):
     model = Funcionario
-    fields = ['nome',
+    fields = ['nome','cpf','idade','email','telefone',
     'departamentos']
 
 
@@ -40,7 +40,8 @@ class FuncionarioDelete(DeleteView):
 
 class FuncionarioNovo(CreateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome','cpf','idade','email','telefone',
+    'departamentos']
 
     def form_valid(self, form):
         funcionario = form.save(commit=False)

@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from .tasks import send_relatorio
 from django.db.models import Sum
 from .tasks import send_relatorio
-
+from apps_gerais.registro_hora_extra.models import RegistroHoraExtra
 
 
 @login_required

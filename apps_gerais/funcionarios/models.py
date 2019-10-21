@@ -7,12 +7,16 @@ from django.db.models import Sum
 
 class Funcionario(models.Model):
 	nome = models.CharField(max_length=100)
+	cpf = models.CharField('CPF', max_length=11, unique=True)
+	idade = models.IntegerField()
+	email = models.EmailField(unique=True)
+	telefone = models.CharField(max_length=20, blank=True)
 	user = models.OneToOneField(User, on_delete=models.PROTECT)
 	departamentos = models.ManyToManyField(Departamento)
 	empresa = models.ForeignKey(
 		Empresa, on_delete=models.PROTECT, null=True, blank=True)
 	imagem = models.ImageField()
-
+	de_ferias = models.BooleanField(default=False)
 
 	def get_absolute_url(self):
 		return reverse('list_funcionarios')

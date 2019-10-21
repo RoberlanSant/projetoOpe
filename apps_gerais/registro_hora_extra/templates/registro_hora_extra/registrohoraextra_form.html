@@ -17,8 +17,8 @@
         </a>
 
     {% endif %}
-    <button onclick="utilizouHoraExtra({{ object.id }})	" class="btn btn-info	" type="button">
-    		Horas utilizadas</button>
+    <button onclick="utilizouHoraExtra({{ object.id }}) " class="btn btn-info" type="button">
+            Horas utilizadas</button>
 
 </form>
 <h2 id="horas_atualizadas"> {{ object.funcionario.total_horas_extra }} </h2>
@@ -30,7 +30,7 @@
 
 
 {% block static %}
-		<script src="{% static 'js/jquery.js' %}"></script>
-		<script src="{% static 'js/funcoes-ajax.js' %}"></script>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/funcoes-ajax.js' %}"></script>
 
 {% endblock %}

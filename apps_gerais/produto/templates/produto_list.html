@@ -11,10 +11,6 @@
           <span class="fa fa-plus"></span> Adicionar
         </button>
       </a>
-      <button onclick="alert('Esta ação vai detelar todos os itens de produtos, tem certeza que quer deletar todos itens? Essa ação não pode ser desfeita')"
-      type="button" class="btn btn-danger">
-     <span class="fa fa-trash"></span> Deletar
-    </button>
     </span>
   </h2>
    <br>
@@ -27,7 +23,6 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th class="text-center">Seleção</th>
           <th class="text-center">Importado</th>
           <th class="text-center">NCM</th>
           <th class="text-center">Produto</th>
@@ -39,7 +34,6 @@
       <tbody>
         {% for object in object_list %}
           <tr>
-              <td><input type="checkbox" value="{{ object.ncm }}" name="my_checkbox"></td><!--Novo check box que pega número de ncm, relacionar com uma função pro botão deleta depois-->
             <td>
               {% if object.importado %}
                 <i class="fa fa-check-circle ok"></i>

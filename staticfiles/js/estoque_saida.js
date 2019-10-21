@@ -7,7 +7,7 @@ $(document).ready(function() {
   // Cria um span para mostrar o saldo na tela.
   $('label[for="id_estoque-0-saldo"]').append('<span id="id_estoque-0-saldo-span" class="lead" style="padding-left:10px"></span>')
   // Select2
-  $('.clProduto').select2()
+  //$('.clProduto').select2()
 });
 
   $('#add-item').click(function(ev) {
@@ -34,7 +34,7 @@ $(document).ready(function() {
     // Cria um span para mostrar o saldo na tela.
     $('label[for="id_estoque-' + (count) + '-saldo"]').append('<span id="id_estoque-' + (count) + '-saldo-span" class="lead" style="padding-left:10px"></span>')
     // Select2
-    $('.clProduto').select2()
+    //$('.clProduto').select2()
   });
 function VAI() {
   alert("conectado com ESTOQUE_SAIDA.js")

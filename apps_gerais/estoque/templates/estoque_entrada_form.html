@@ -8,15 +8,16 @@
   <style>
     .form-control {
       margin: 10px;
+    
     }
   </style>
 
 {% endblock css %}
 
 {% block main %}
-
-<a href="{% url 'estoque:estoque_entrada_list' %}">Voltar</a>
 <button onclick="VAI()">Teste</button>
+<a href="{% url 'estoque:estoque_entrada_list' %}">Voltar</a>
+
 <div class="row">
   <div class="cols">
     <form method="POST" novalidate>
@@ -79,6 +80,7 @@
     </form>
   </div>
 </div>
+
 {% endblock main %}
 
 {% block js %}

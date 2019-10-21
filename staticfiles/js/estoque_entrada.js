@@ -1,6 +1,3 @@
-function VAI() {
-  alert("conectado com ESTOQUE_ENTRADA.js")
-}
 $(document).ready(function() {
   // Insere classe no primeiro item de produto
   $('#id_estoque-0-produto').addClass('clProduto');
@@ -10,7 +7,7 @@ $(document).ready(function() {
   // Cria um span para mostrar o saldo na tela.
   $('label[for="id_estoque-0-saldo"]').append('<span id="id_estoque-0-saldo-span" class="lead" style="padding-left: 10px;"></span>')
   // Select2
-  $('.clProduto').select2()
+  //$('.clProduto').select2()
 });
 
   $('#add-item').click(function(ev) {
@@ -38,7 +35,7 @@ $(document).ready(function() {
     $('label[for="id_estoque-' + (count) + '-saldo"]').append('<span id="id_estoque-' + (count) + '-saldo-span" class="lead" style="padding-left: 10px;"></span>')
 
     // Select2
-    $('.clProduto').select2()
+    //$('.clProduto').select2()
   });
 
 let estoque
@@ -69,7 +66,7 @@ $(document).on('change', '.clProduto', function() {
 
 $(document).on('change', '.clQuantidade', function() {
   quantidade = $(this).val();
-  // Aqui é feito o cálculo de soma do estoque
+  // Aqui Ã© feito o cÃ¡lculo de soma do estoque
   saldo = Number(quantidade) + Number(estoque);
   campo = $(this).attr('id').replace('quantidade', 'saldo')
   // Desabilita o 'Saldo'
@@ -80,4 +77,3 @@ $(document).on('change', '.clQuantidade', function() {
   // Atrubui o saldo ao campo 'id_estoque-x-saldo-span'
   $('#'+campo2).text(saldo)
 });
-

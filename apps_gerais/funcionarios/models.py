@@ -18,8 +18,9 @@ class Funcionario(models.Model):
 	imagem = models.ImageField()
 	de_ferias = models.BooleanField(default=False)
 
+
 	def get_absolute_url(self):
-		return reverse('list_funcionarios')
+		return reverse('home')
 
 	@property
 	def total_horas_extra(self):

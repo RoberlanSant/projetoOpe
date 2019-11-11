@@ -30,6 +30,7 @@ urlpatterns += i18n_patterns (
     path('horas-extras/', include('apps_gerais.registro_hora_extra.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('usuarios/', include('apps_gerais.usuarios.urls')),
     path('produto/', include('apps_gerais.produto.urls')),
     path('estoque/', include('apps_gerais.estoque.urls')),
 

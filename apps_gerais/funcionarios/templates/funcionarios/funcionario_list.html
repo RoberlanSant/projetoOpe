@@ -6,23 +6,27 @@
 
 <ul class="list-group">
   <li class="list-group-item list-group-item-success">
-    {% for funcionario in object_list %}
-        <a href="{% url 'update_funcionario' funcionario.id %}">
-           {{funcionario}}
-        </a>
 
-        <span class="badge badge-warning">
-        <a href="{% url 'delete_funcionario' funcionario.id %}">
-            Deletar
+    {% for funcionario in object_list %}
+
+
+           {{funcionario}}
+
+      <span class="badge badge-warning">
+        <a href="{% url 'detalhe_funcionario' funcionario.id %}">
+            Detalhe
         </span>
         </a>
         <br>
     {% endfor %}
-</li>
-</ul>
-    <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Novo </a>
-    <a href="{% url 'relatorio_funcionarios' %}" class="btn btn-info">Relatório Funcionarios</a>
 
+  </li>
+</ul>
+
+    <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Novo </a>
+
+
+    <a href="{% url 'relatorio_funcionarios' %}" class="btn btn-info">Relatório Funcionarios</a>
     <a href="{% url 'relatorio_funcionarios_html' %}" class="btn btn-info">Relatório Funcionarios HTML</a>
 
 

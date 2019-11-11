@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<br>
+<h4 class="list-group-item list-group-item-primary">Detalhes do Funcionario</h4>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">
+<p><strong>Nome: </strong>{{ funcionario.nome }}</p>
+<p><strong>CPF:</strong> {{ funcionario.cpf }}</p>
+<p><strong>Idade:</strong> {{ funcionario.idade }}</p>
+<p><strong>Email:</strong> {{ funcionario.email }}</p>
+<p><strong>Telefone:</strong> {{ funcionario.telefone }}</p>
+
+
+  </li>
+</ul>
+<span class="btn btn-warning">
+    <a href="{% url 'update_funcionario' funcionario.id %}">
+            Alterar
+</span></a>
+<span class="btn btn-danger">
+    <a href="{% url 'delete_funcionario' funcionario.id %}">
+            Deletar
+</span></a>
+
+
+{% endblock %}

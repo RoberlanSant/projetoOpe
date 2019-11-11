@@ -4,8 +4,8 @@ from decouple import config, Csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = config('SECRET_KEY')
-# SECRET_KEY = 'it%9s+c#9m=ya0_vyjhdu#ja0g*q3l-_r(&l&vias#a=zywh!)'
+#SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'it%9s+c#9m=ya0_vyjhdu#ja0g*q3l-_r(&l&vias#a=zywh!)'
 
 
 DEBUG = True
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'apps_gerais.produto',
     'apps_gerais.estoque',
+    'apps_gerais.usuarios',
     'apps_gerais.app_antiga'
 ]
 
@@ -72,6 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'projetoOpe.wsgi.application'
 
 
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -98,7 +100,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 DATABASES = {
     'default': {
@@ -131,7 +132,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-#DATABASE_ROUTERS = ['projetoOpe.DBroutes.DBroutes']
+DATABASE_ROUTERS = ['projetoOpe.DBroutes.DBroutes']
 
 LANGUAGES = [
     ('es', _('Spanish')),

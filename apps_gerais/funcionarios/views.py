@@ -1,7 +1,9 @@
+import password as password
 from django.views.generic import(ListView,
                                 UpdateView,
                                 DeleteView,
-                                CreateView
+                                CreateView,
+                                DetailView
 )
 from .models import Funcionario
 from django.urls import reverse
@@ -26,6 +28,9 @@ class FuncionariosList(ListView):
         empresa_logada = self.request.user.funcionario.empresa
         return Funcionario.objects.filter(empresa=empresa_logada)
 
+class FuncionarioDetail(DetailView):
+    model = Funcionario
+
 
 class FuncionarioEdit(UpdateView):
     model = Funcionario
@@ -38,6 +43,7 @@ class FuncionarioDelete(DeleteView):
     success_url = reverse_lazy('list_funcionarios')
 
 
+
 class FuncionarioNovo(CreateView):
     model = Funcionario
     fields = ['nome','cpf','idade','email','telefone',
@@ -45,9 +51,10 @@ class FuncionarioNovo(CreateView):
 
     def form_valid(self, form):
         funcionario = form.save(commit=False)
-        username = funcionario.nome.split(' ')[0] + funcionario.nome.split(' ')[1]
+        username = funcionario.email
         funcionario.empresa = self.request.user.funcionario.empresa
         funcionario.user = User.objects.create(username=username)
+        funcionario.password = User.objects.create(password=password)
         funcionario.save()
         return super(FuncionarioNovo, self).form_valid(form)
 

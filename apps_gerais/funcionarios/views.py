@@ -1,4 +1,4 @@
-import password as password
+#import password as password
 from django.views.generic import(ListView,
                                 UpdateView,
                                 DeleteView,
@@ -25,8 +25,11 @@ class FuncionariosList(ListView):
     model = Funcionario
 
     def get_queryset(self):
-        empresa_logada = self.request.user.funcionario.empresa
-        return Funcionario.objects.filter(empresa=empresa_logada)
+        try:
+            empresa_logada = self.request.user.funcionario.empresa
+            return Funcionario.objects.filter(empresa=empresa_logada)
+        except Exception as e:
+            return Funcionario.objects.all()
 
 class FuncionarioDetail(DetailView):
     model = Funcionario
@@ -43,20 +46,31 @@ class FuncionarioDelete(DeleteView):
     success_url = reverse_lazy('list_funcionarios')
 
 
-
 class FuncionarioNovo(CreateView):
     model = Funcionario
     fields = ['nome','cpf','idade','email','telefone',
-    'departamentos']
+    'departamentos','empresa']
 
     def form_valid(self, form):
-        funcionario = form.save(commit=False)
-        username = funcionario.email
-        funcionario.empresa = self.request.user.funcionario.empresa
-        funcionario.user = User.objects.create(username=username)
-        funcionario.password = User.objects.create(password=password)
-        funcionario.save()
-        return super(FuncionarioNovo, self).form_valid(form)
+        try:
+            funcionario = form.save(commit=False)
+            username = funcionario.email
+            funcionario.empresa = self.request.user.funcionario.empresa
+            funcionario.user = User.objects.create(username=username)
+            funcionario.password = User.objects.create(password=password)
+            funcionario.save()
+            return super(FuncionarioNovo, self).form_valid(form)
+        except:
+            funcionario = form.save(commit=False)
+            username = funcionario.email
+            #Depois precisa colocar algum validador 
+            # ele dá erro com unique em relação ao nome de usuário por estár igual ao(não aceita dois emails iguais) email agora, mas só no envio
+            funcionario.empresa = funcionario.empresa
+            funcionario.user = User.objects.create(username=username)
+            #funcionario.password = User.objects.create(password=password)
+            #Ele não está importando password 
+            funcionario.save()
+            return super(FuncionarioNovo, self).form_valid(form)
 
 
 
@@ -71,27 +85,45 @@ def relatorio_funcionarios(request):
 
     p.drawString(200, 810, 'Relatório de funcionarios')
 
-    funcionarios = Funcionario.objects.filter(empresa=request.user.funcionario.empresa)
+    try:
+        funcionarios = Funcionario.objects.filter(empresa=request.user.funcionario.empresa)
+        str_ = 'Nome: %s   |Hora extra: %.2f'
+        p.drawString(0, 800, '_'*150)
 
-    str_ = 'Nome: %s   |Hora extra: %.2f'
+        y = 750
+        for funcionario in funcionarios:
+            p.drawString(10, y, str_ %(funcionario.nome, funcionario.total_horas_extra))
+            y -= 20
 
-    p.drawString(0, 800, '_'*150)
+        p.showPage()
+        p.save
 
-    y = 750
-    for funcionario in funcionarios:
-        p.drawString(10, y, str_ %(funcionario.nome, funcionario.total_horas_extra))
-        y -= 20
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
 
-    p.showPage()
-    p.save
+        return response
+
+    except:
+        funcionarios = Funcionario.objects.all()
+        str_ = 'Nome: %s   |Hora extra: %.2f'
+
+        p.drawString(0, 800, '_'*150)
+
+        y = 750
+        for funcionario in funcionarios:
+            p.drawString(10, y, str_ %(funcionario.nome, funcionario.total_horas_extra))
+            y -= 20
+
+        p.showPage()
+        p.save
 
 
-    pdf =buffer.getvalue()
-    buffer.close()
-    response.write(pdf)
+        pdf =buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
 
-    return response
-
+        return response
 
 class Render:
     @staticmethod

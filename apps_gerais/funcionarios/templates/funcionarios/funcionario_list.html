@@ -10,7 +10,7 @@
     {% for funcionario in object_list %}
 
 
-           {{funcionario}}
+           {{funcionario|upper}}
 
       <span class="badge badge-warning">
         <a href="{% url 'detalhe_funcionario' funcionario.id %}">

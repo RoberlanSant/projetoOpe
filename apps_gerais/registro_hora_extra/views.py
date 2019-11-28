@@ -2,16 +2,16 @@ from django.http import HttpResponse
 import json
 import csv
 import xlwt
+from django.views import View
 from .models import RegistroHoraExtra
 from django.urls import reverse_lazy
 from .forms import RegistroHoraExtraForm
 from django.contrib.auth.models import User
-from django.views import View
-from django.views.generic import(ListView,
-                                UpdateView,
-                                DeleteView,
-                                CreateView
-)
+from django.views.generic import (ListView,
+                                  UpdateView,
+                                  DeleteView,
+                                  CreateView
+                                  )
 
 
 class HoraExtraList(ListView):
@@ -35,7 +35,8 @@ class HoraExtraEdit(UpdateView):
 class HoraExtraEditGeral(UpdateView):
     model = RegistroHoraExtra
     form_class = RegistroHoraExtraForm
-    #success_url = reverse_lazy('update_horas-extras_geral')
+
+    # success_url = reverse_lazy('update_horas-extras_geral')
 
     def get_success_url(self):
         return reverse_lazy('update_horas-extras_geral', args=[self.object.id])
@@ -60,14 +61,14 @@ class HoraExtraUpdate(CreateView):
         kwargs.update({'user': self.request.user})
         return kwargs
 
+
 class UtilizouHoraExtra(View):
     def post(self, *args, **kwargs):
-
         registro_hora_extra = RegistroHoraExtra.objects.get(id=kwargs['pk'])
         registro_hora_extra.utilizada = True
         registro_hora_extra.save()
 
-        empregado =self.request.user.funcionario
+        empregado = self.request.user.funcionario
 
         response = json.dumps(
             {'mensagem': 'Requisição executada',
@@ -89,10 +90,9 @@ class ExportarCSV(View):
 
         for registro in registro_re:
             writer.writerow([registro.id, registro.motivo, registro.funcionario,
-             registro.funcionario.total_horas_extra, registro.horas])
+                             registro.funcionario.total_horas_extra, registro.horas])
 
         return response
-
 
 
 class ExportarExcel(View):
@@ -115,7 +115,7 @@ class ExportarExcel(View):
 
         font_style = xlwt.XFStyle()
 
-        registros =RegistroHoraExtra.objects.filter(utilizada=False)
+        registros = RegistroHoraExtra.objects.filter(utilizada=False)
 
         row_num = 1
         for registro in registros:

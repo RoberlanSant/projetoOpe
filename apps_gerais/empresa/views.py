@@ -14,10 +14,10 @@ class EmpresaCreate(CreateView):
             funcionario = self.request.user.funcionario
             funcionario.empresa = obj
             funcionario.save()
-            return HttpResponse('OK')
+            return super(EmpresaCreate, self).form_valid(form)
         except:
             obj = form.save()
-            return HttpResponse('OK')
+            return super(EmpresaCreate, self).form_valid(form)
 
 
 class EmpresaEdit(UpdateView):

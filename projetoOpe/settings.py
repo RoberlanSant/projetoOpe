@@ -12,6 +12,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#ALLOWED_HOSTS = ['18.189.210.71']
+#ALLOWED_HOSTS = ['titansdeouro.ddns.net']
+
 
 
 INSTALLED_APPS = [

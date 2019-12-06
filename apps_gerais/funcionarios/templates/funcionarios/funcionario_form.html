@@ -11,7 +11,18 @@
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
     <br>
+    <a href="{% url 'create_empresa' %}">
+      <button type="button" class="btn btn-primary">
+        <span class="fa fa-plus"></span> Adicionar Empresa
+      </button>
+    </a>
 
+    
+    <a href="{% url 'create_departamento' %}">
+        <button type="button" class="btn btn-primary">
+          <span class="fa fa-plus"></span> Adicionar Departamento 
+        </button>
+    </a>
 <br>
 <h5>Documentos</h5>
 <ul>

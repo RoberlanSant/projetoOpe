@@ -7,8 +7,8 @@
 <form method="POST">
     {% csrf_token %}
     <h4>Você tem certeza que quer deletar: {{ object }}</h4>
-    {{ form }}
 
+    {{ form }}
     <button type="submit" class="btn btn-danger">Confirmar</button>
 </form>
 

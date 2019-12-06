@@ -18,9 +18,11 @@ class HoraExtraList(ListView):
     model = RegistroHoraExtra
 
     def get_queryset(self):
-        empresa_logada = self.request.user.funcionario.empresa
-        return RegistroHoraExtra.objects.filter(funcionario__empresa=empresa_logada)
-
+        try:
+            empresa_logada = self.request.user.funcionario.empresa
+            return RegistroHoraExtra.objects.filter(funcionario__empresa=empresa_logada)
+        except Exception as e:   
+            return RegistroHoraExtra.objects.all()
 
 class HoraExtraEdit(UpdateView):
     model = RegistroHoraExtra

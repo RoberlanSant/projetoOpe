@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'apps_gerais.produto',
     'apps_gerais.estoque',
     'apps_gerais.usuarios',
-    'apps_gerais.app_antiga'
 ]
 
 MIDDLEWARE = [

@@ -15,18 +15,22 @@ from apps_gerais.registro_hora_extra.models import RegistroHoraExtra
 def home(request):
     data = {}
     data['usuario'] = request.user
-    funcionario = request.user.funcionario
-    data['total_funcionarios'] = funcionario.empresa.total_funcionarios
-    data['total_funcionarios_ferias'] = funcionario.empresa.total_funcionarios_ferias
-    data['total_funcionarios_doc_ok'] = funcionario.empresa.total_funcionarios_doc_ok
-    data['total_funcionarios_doc_pendente'] = funcionario.empresa.total_funcionarios_doc_pendente
-    data['total_funcionarios_rg'] = 10
-    data['total_funcionarios_doc_pendente'] = funcionario.empresa.total_funcionarios_doc_pendente
-    data['total_hora_extra_utilizadas'] = RegistroHoraExtra.objects.filter(
-    	funcionario__empresa=funcionario.empresa, utilizada=True).aggregate(Sum('horas'))['horas__sum']
-    data['total_hora_extra_pendente'] = RegistroHoraExtra.objects.filter(
-    	funcionario__empresa=funcionario.empresa, utilizada=False).aggregate(Sum('horas'))['horas__sum']
-    return render(request, 'core/index.html', data)
+    try:
+        funcionario = request.user.funcionario
+        data['total_funcionarios'] = funcionario.empresa.total_funcionarios
+        data['total_funcionarios_ferias'] = funcionario.empresa.total_funcionarios_ferias
+        data['total_funcionarios_doc_ok'] = funcionario.empresa.total_funcionarios_doc_ok
+        data['total_funcionarios_doc_pendente'] = funcionario.empresa.total_funcionarios_doc_pendente
+        data['total_funcionarios_rg'] = 10
+        data['total_funcionarios_doc_pendente'] = funcionario.empresa.total_funcionarios_doc_pendente
+        data['total_hora_extra_utilizadas'] = RegistroHoraExtra.objects.filter(
+            funcionario__empresa=funcionario.empresa, utilizada=True).aggregate(Sum('horas'))['horas__sum']
+        data['total_hora_extra_pendente'] = RegistroHoraExtra.objects.filter(
+            funcionario__empresa=funcionario.empresa, utilizada=False).aggregate(Sum('horas'))['horas__sum']
+        return render(request, 'core/index.html', data)
+    except Exception as e:
+       return render(request, 'core/index.html', data)
+       #return HttpResponse('Você não tem funcionários, não sei entrou no except, deve ser isso')
 
 
 def celery(request):

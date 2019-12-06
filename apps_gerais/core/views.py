@@ -29,7 +29,7 @@ def home(request):
             funcionario__empresa=funcionario.empresa, utilizada=False).aggregate(Sum('horas'))['horas__sum']
         return render(request, 'core/index.html', data)
     except Exception as e:
-       return render(request, 'core/index.html', data)
+        return render(request, 'core/index.html', data)
        #return HttpResponse('Você não tem funcionários, não sei entrou no except, deve ser isso')
 
 

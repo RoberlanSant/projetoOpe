@@ -64,7 +64,7 @@ class FuncionarioNovo(CreateView):
             funcionario = form.save(commit=False)
             username = funcionario.email
             #Depois precisa colocar algum validador 
-            # ele dá erro com unique em relação ao nome de usuário por estár igual ao(não aceita dois emails iguais) email agora, mas só no envio
+            # ele dá erro com unique em relação ao nome de usuário por  estár igual ao(não aceita dois emails iguais) email agora, mas só no envio
             funcionario.empresa = funcionario.empresa
             funcionario.user = User.objects.create(username=username)
             #funcionario.password = User.objects.create(password=password)
